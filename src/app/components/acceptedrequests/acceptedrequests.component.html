@@ -1,0 +1,23 @@
+<section class="main-content">
+    @for (requ of acceptedRequests; track requ.request_id) {
+        <div class="request">
+            <div class="request-left">
+                <div class="my-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="47" height="47" viewBox="0 0 47 47" fill="none">
+                        <path
+                            d="M32.9737 1V5.5M21.1316 1V5.5M9.28947 1V5.5M41.2632 19C41.2632 11.575 41.2632 7.8625 38.8355 5.55625C36.4079 3.25 32.5 3.25 24.6842 3.25H17.5789C9.76316 3.25 5.85526 3.25 3.42763 5.55625C1 7.8625 1 11.575 1 19V30.25C1 37.675 1 41.3875 3.42763 43.6938C5.85526 46 9.76316 46 17.5789 46H24.6842M36.5263 28V46M46 37H27.0526M11.6579 30.25H21.1316M11.6579 19H30.6053"
+                            stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="request-title">
+                    <h1>{{requ.type_name}}</h1>
+                    <p>{{requ.status}}<span class="time">count : {{requ.count}}</span></p>
+                </div>
+            </div>
+            <div class="request-right">
+                <i class="fa-solid fa-check"></i>
+                مقبول
+            </div>
+        </div>
+    }
+</section>

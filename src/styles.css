@@ -1,1 +1,128 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --main-clr: #007bff;
+    --bg-clr: #f1f1f1;
+    --info-clr: #acacac;
+}
+
+/* Basic style------------------------>  */
+
+img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 0 !important;
+}
+
+ul li {
+    list-style: none;
+    color: white;
+}
+
+input {
+    outline: none;
+    transition: all .2s;
+}
+
+input:hover {
+    border: 1px solid var(--main-clr) !important;
+}
+
+input:focus {
+    border: 1px solid rgb(0, 0, 0) !important;
+}
+
+
+/* common style------------------------> */
+.main-clr {
+    color: var(--main-clr);
+}
+
+.left-section,
+.right-section {
+    flex: 1;
+    padding: 40px;
+    width: 100% !important;
+}
+
+.btn-outline {
+    padding: 8px 16px;
+    border: 1px solid var(--main-clr) !important;
+    background-color: white;
+    color: var(--main-clr);
+    border-radius: 10px;
+    cursor: pointer;
+    width: 130px;
+    transition: .2s;
+}
+
+.btn-outline:hover {
+    background-color: var(--main-clr);
+    color: white;
+    border: 1px solid var(--main-clr);
+
+}
+
+.btn-primary {
+    padding: 8px 16px;
+    background-color: var(--main-clr);
+    border: none;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background-color: white;
+    color: var(--main-clr);
+    border: 1px solid var(--main-clr);
+
+}
+
+.btn-submit {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: var(--main-clr);
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.btn-submit:hover {
+    background-color: white;
+    color: var(--main-clr);
+    border-color: var(--main-clr);
+}
+
+.err-alert{
+    padding: 10px ;
+    color: red;
+    font-size: 15px;
+    margin: 0 !important;
+    text-align: center;
+}
+.succ-alert{
+    padding: 10px ;
+    color: rgb(35, 228, 10);
+    font-size: 15px;
+    margin: 0 !important;
+    text-align: center;
+}
+
+/* Any section */
+
+section.main-content {
+    background-color: rgb(245, 245, 245);
+    min-height: 100vh;
+}

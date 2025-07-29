@@ -1,0 +1,25 @@
+<section class="main-content">
+    <div class="news-heading">
+        <button routerLink="/main/news/createnew">إضافة خبر جديد +</button>
+    </div>
+    @for (new of NewsData; track new.id) {
+    <div class="news">
+        <div class="news-left">
+            <div class="my-icon">
+                <img [src]=" new.image || './assets/images/institute2.png'" (error)="new.image= './assets/images/institute2.png'" alt="hti image" loading="lazy">
+            </div>
+            <div class="news-title">
+                <div class="title-head">
+                    <h1>{{new.title}}</h1>
+                </div>
+                <p class="details">{{ new.content.split(' ').slice(0, 10).join(' ') }}</p>
+                <p>{{new.created_at |  date}}<span class="time">{{new.created_at |  date:"hh:mm a"}}</span></p>
+            </div>
+        </div>
+        <div class="news-right">
+            <button [routerLink]="['/main/news/update-new' , new.id]">تعديل</button>
+            <button (click)="deleteNew(new.id)">حذف</button>
+        </div>
+    </div>
+    }
+</section>

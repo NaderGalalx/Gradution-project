@@ -1,0 +1,162 @@
+<div class="upload-container">
+
+  <!-- رفع ملف Excel -->
+  <div class="section upload">
+    <label for="excelFile" class="upload-btn"> رفع ملف Excel <i class="fa-solid fa-upload"></i></label>
+    @if(loader){<i class="fa-solid fa-circle-notch fa-spin"></i> }
+    <input type="file" id="excelFile" hidden (change)="onFileSelected($event)" accept=".xlsx, .xls">
+    @if(errMessage){
+    <p class="err-alert">فشلت العملية</p>
+    }
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-lg-6">
+        <!-- زر إضافة مستخدم -->
+        <div class="section">
+
+          <button class="toggle-btn" (click)="showUserForm = !showUserForm ; activeBtn = !activeBtn">
+            <span>إضافة طالب</span>
+            <i class="fa-solid" [ngClass]="activeBtn ? 'fa-chevron-up' : 'fa-chevron-left'"></i>
+          </button>
+
+          @if(showUserForm){
+          <form class="form" [formGroup]="stdForm" (ngSubmit)="submitUser()">
+            <input type="text" placeholder="ID" formControlName="id">
+            @if(stdForm.get("id")?.errors && stdForm.get("id")?.touched ){
+            <div class="alert alert-warning p-2 my-2 fs-6 fw-bold">
+              @if ( stdForm.get("id")?.getError("required") ){<p class="m-0">يجب ملئ الحقل</p>}
+            </div>
+            }
+            <input type="text" placeholder="الاسم" formControlName="name">
+            @if(stdForm.get("name")?.errors && stdForm.get("name")?.touched ){
+            <div class="alert alert-warning p-2 my-2 fs-6 fw-bold">
+              @if ( stdForm.get("name")?.getError("required") ){<p class="m-0">يجب ملئ الحقل</p>}
+            </div>
+            }
+            <input type="email" placeholder="إيميل (إيميل المعهد)" formControlName="email">
+            @if(stdForm.get("email")?.errors && stdForm.get("email")?.touched ){
+            <div class="alert alert-warning p-2 my-2 fs-6 fw-bold">
+              @if ( stdForm.get("email")?.getError("required") ){<p class="m-0">يجب ملئ الحقل</p>}
+            </div>
+            }
+            <input type="email" placeholder="الإيميل الشخصي" formControlName="personal_email">
+            @if(stdForm.get("personal_email")?.errors && stdForm.get("personal_email")?.touched ){
+            <div class="alert alert-warning p-2 my-2 fs-6 fw-bold">
+              @if ( stdForm.get("personal_email")?.getError("required") ){<p class="m-0">يجب ملئ الحقل</p>}
+            </div>
+            }
+            <input type="text" placeholder="رقم الهاتف" formControlName="phone_number">
+            @if(stdForm.get("phone_number")?.errors && stdForm.get("phone_number")?.touched ){
+            <div class="alert alert-warning p-2 my-2 fs-6 fw-bold">
+              @if ( stdForm.get("phone_number")?.getError("required") ){<p class="m-0">يجب ملئ الحقل</p>}
+            </div>
+            }
+            <select formControlName="type">
+              <option value="" disabled>النوع (خريج، طالب)</option>
+              <option value="student">طالب</option>
+              <option value="graduate">خريج</option>
+            </select>
+            @if(stdForm.get("type")?.errors && stdForm.get("type")?.touched ){
+            <div class="alert alert-warning p-2 my-2 fs-6 fw-bold">
+              @if ( stdForm.get("type")?.getError("required") ){<p class="m-0">يجب ملئ الحقل</p>}
+            </div>
+            }
+            <input type="text" placeholder="القسم" formControlName="major">
+            @if(stdForm.get("major")?.errors && stdForm.get("major")?.touched ){
+            <div class="alert alert-warning p-2 my-2 fs-6 fw-bold">
+              @if ( stdForm.get("major")?.getError("required") ){<p class="m-0">يجب ملئ الحقل</p>}
+            </div>
+            }
+            <input type="password" placeholder="كلمة السر" formControlName="password">
+            @if(stdForm.get("password")?.errors && stdForm.get("password")?.touched ){
+            <div class="alert alert-warning p-2 my-2 fs-6 fw-bold">
+              @if ( stdForm.get("password")?.getError("required") ){<p class="m-0">يجب ملئ الحقل</p>}
+            </div>
+            }
+            <p class="err-alert">{{usererrMessage}}</p>
+
+            @if(userDone){
+            <p class="succ-alert">تمت الإضافة</p>
+            }
+            <button type="submit" class="submit-btn"> حفظ المستخدم</button>
+          </form>
+          }
+        </div>
+      </div>
+
+      <!-- admin  -->
+      <div class="col-md-6 col-lg-6">
+        <!-- زر إضافة أدمن -->
+        <div class="section">
+          <button class="toggle-btn" (click)="showAdminForm = !showAdminForm ; activeBtn2 = !activeBtn2">
+            <span>إضافة مسؤول</span>
+            <i class="fa-solid" [ngClass]="activeBtn2 ? 'fa-chevron-up' : 'fa-chevron-left'"></i>
+          </button>
+          @if(showAdminForm){
+          <form class="form" [formGroup]="AdminForm" (ngSubmit)="submitAdmin()">
+            <input type="text" placeholder="ID" formControlName="id">
+            @if(AdminForm.get("id")?.errors && AdminForm.get("id")?.touched ){
+            <div class="alert alert-warning p-2 my-2 fs-6 fw-bold">
+              @if ( AdminForm.get("id")?.getError("required") ){<p class="m-0">يجب ملئ الحقل</p>}
+            </div>
+            }
+            <input type="text" placeholder="الاسم" formControlName="name">
+            @if(AdminForm.get("name")?.errors && AdminForm.get("name")?.touched ){
+            <div class="alert alert-warning p-2 my-2 fs-6 fw-bold">
+              @if ( AdminForm.get("name")?.getError("required") ){<p class="m-0">يجب ملئ الحقل</p>}
+            </div>
+            }
+            <input type="email" placeholder="الإيميل (إيميل المعهد)" formControlName="email">
+            @if(AdminForm.get("email")?.errors && AdminForm.get("email")?.touched ){
+            <div class="alert alert-warning p-2 my-2 fs-6 fw-bold">
+              @if ( AdminForm.get("email")?.getError("required") ){<p class="m-0">يجب ملئ الحقل</p>}
+            </div>
+            }
+            <input type="email" placeholder="الإيميل الشخصي" formControlName="personal_email">
+            @if(AdminForm.get("personal_email")?.errors && AdminForm.get("personal_email")?.touched ){
+            <div class="alert alert-warning p-2 my-2 fs-6 fw-bold">
+              @if ( AdminForm.get("personal_email")?.getError("required") ){<p class="m-0">يجب ملئ الحقل</p>}
+            </div>
+            }
+            <input type="text" placeholder="رقم الهاتف" formControlName="phone_number">
+            @if(AdminForm.get("phone_number")?.errors && AdminForm.get("phone_number")?.touched ){
+            <div class="alert alert-warning p-2 my-2 fs-6 fw-bold">
+              @if ( AdminForm.get("phone_number")?.getError("required") ){<p class="m-0">يجب ملئ الحقل</p>}
+            </div>
+            }
+            <select formControlName="type">
+              <option value="" disabled>النوع</option>
+              <option value="admin">مسؤول</option>
+            </select>
+            @if(AdminForm.get("type")?.errors && AdminForm.get("type")?.touched ){
+            <div class="alert alert-warning p-2 my-2 fs-6 fw-bold">
+              @if ( AdminForm.get("type")?.getError("required") ){<p class="m-0">يجب ملئ الحقل</p>}
+            </div>
+            } <input type="text" placeholder="القسم" formControlName="major">
+            @if(AdminForm.get("major")?.errors && AdminForm.get("major")?.touched ){
+            <div class="alert alert-warning p-2 my-2 fs-6 fw-bold">
+              @if ( AdminForm.get("major")?.getError("required") ){<p class="m-0">يجب ملئ الحقل</p>}
+            </div>
+            }
+            <input type="password" placeholder="كلمة السر" formControlName="password">
+            @if(AdminForm.get("password")?.errors && AdminForm.get("password")?.touched ){
+            <div class="alert alert-warning p-2 my-2 fs-6 fw-bold">
+              @if ( AdminForm.get("password")?.getError("required") ){<p class="m-0">يجب ملئ الحقل</p>}
+            </div>
+            }
+            <p class="err-alert">{{adminerrMessage}}</p>
+
+            @if(adminDone){
+            <p class="succ-alert">تمت الإضافة</p>
+            }
+            <button type="submit" class="submit-btn"> حفظ الأدمن</button>
+          </form>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

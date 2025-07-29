@@ -1,0 +1,34 @@
+<section>
+    <div class="container">
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="left-section">
+                    <img src="../../../assets/images/FrameVerifyPass.png"  class="illustration" />
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="right-section">
+                    <form class="verify-form">
+                        <div class="head-foget-pass main-clr text-center">
+                            <h1>تأكيد كلمة المرور؟</h1>
+                            <p>يرجى إدخال الرمز المكوّن من 4 أرقام <br>
+                                الذي تم إرساله إلى youremail&#64;gmail.com</p>
+                        </div>
+                        <!-- 4 inputs Digits to verify the password -->
+                        <div class="code-inputs my-3">
+                            <input type="text" maxlength="1" (input)="onDigitInput($event, 0)" />
+                            <input type="text" maxlength="1" (input)="onDigitInput($event, 1)" />
+                            <input type="text" maxlength="1" (input)="onDigitInput($event, 2)" />
+                            <input type="text" maxlength="1" (input)="onDigitInput($event, 3)" />
+                        </div>
+
+                        <!-- message -->
+                        <p class="login-link">لم يصلك الرمز؟  <a routerLink="/auth/forgetpass">أعد إرسال الرمز</a></p>
+                        <button type="button" class="btn-submit" (click)="submitCode()">تأكيد</button>
+                        <p class="err-alert">{{errMessage}}</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

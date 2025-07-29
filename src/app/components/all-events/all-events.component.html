@@ -1,0 +1,28 @@
+<section class="main-content">
+    <div class="event-heading">
+        <button routerLink="/main/events/createvent">إضافة فاعلية جديدة + </button>
+    </div>
+    @for (event of eventData; track $index) {
+    <div class="event">
+        <div class="event-left">
+            <div class="my-icon">
+                <img [src]="event.image" (error)="event.image = './assets/images/institute2.png'" alt="user image" loading="lazy" />
+            </div>
+            <div class="event-title">
+                <div class="title-head">
+                    <h1>{{event.title}}</h1>
+                </div>
+                <p class="details">
+                    {{ event.description.split(' ').slice(0, 10).join(' ') }}{{ event.description.split(' ').length > 10 ?
+                    '...' : '' }}
+                </p>
+                <p>{{event.created_at | date}}<span class="time">{{event.created_at | date:"hh:mm a"}}</span></p>
+            </div>
+        </div>
+        <div class="event-right">
+            <button [routerLink]="['/main/events/update-event' , event.id]">تعديل</button>
+            <button (click)="deleteEvent(event.id)">حذف</button>
+        </div>
+    </div>
+    }
+</section>

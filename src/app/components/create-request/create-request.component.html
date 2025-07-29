@@ -1,0 +1,44 @@
+<section class="main-content">
+    <div class="news-form" dir="rtl">
+        <form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
+
+            <!-- title -->
+            <label>العنوان</label>
+            <input type="text" formControlName="name" />
+            @if(requestForm.get("name")?.errors && requestForm.get("name")?.touched ){
+            <div class="alert alert-warning p-2 my-2 fs-6 fw-bold">
+                @if ( requestForm.get("name")?.getError("required") ){<p class="m-0">يجب ملئ الحقل</p>}
+            </div>
+            }
+
+            <!-- Desc -->
+            <label>الوصف</label>
+            <textarea formControlName="description" rows="10"></textarea>
+            @if(requestForm.get("description")?.errors && requestForm.get("description")?.touched ){
+            <div class="alert alert-warning p-2 my-2 fs-6 fw-bold">
+                @if ( requestForm.get("description")?.getError("required") ){<p class="m-0">يجب ملئ الحقل</p>}
+            </div>
+            }
+            <!-- photo -->
+            <label>السعر</label>
+            <div class="price">
+                <input type="number" min="0" formControlName="price" /><span>L.E</span>
+
+            </div>
+            @if(requestForm.get("price")?.errors && requestForm.get("price")?.touched ){
+            <div class="alert alert-warning p-2 my-2 fs-6 fw-bold">
+                @if ( requestForm.get("price")?.getError("required") ){<p class="m-0">يجب ملئ الحقل</p>}
+            </div>
+            }
+            @if(errMessage){
+            <p class="err-alert">فشلت العملية</p>
+            }
+            <div class="btns">
+                <button type="submit">إضافة
+                    @if(loaderflag){<i class="fa-solid fa-circle-notch fa-spin"></i> }
+                </button>
+                <button type="button" (click)="cancelNew()">تراجع</button>
+            </div>
+        </form>
+    </div>
+</section>

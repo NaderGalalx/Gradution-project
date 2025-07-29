@@ -1,0 +1,92 @@
+.news-form{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+label{
+    margin:10px 0 5px 0 ;
+}
+h1{
+    color: var(--main-clr);
+    padding: 10px;
+    text-align: center;
+}
+form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 70%;
+    padding: 20px;
+    border-radius: 10px;
+}
+input{
+    border: 1px solid rgb(83, 83, 83);
+    padding: 10px;
+    direction: rtl;
+}
+input:focus{
+    border-color: var(--main-clr) !important;
+}
+textarea{
+    padding: 10px;
+    outline: none;
+    border: 1px solid rgb(83, 83, 83);
+    direction: rtl;
+}
+textarea:focus{
+    border-color: var(--main-clr);
+}
+
+.btns{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+button:nth-child(1){
+    outline: none;
+    border: 1px solid var(--main-clr);
+    background-color: var(--main-clr);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: .2s;
+}
+button:nth-child(2){
+    outline: none;
+    border: 1px solid var(--main-clr);
+    background-color: transparent;
+    color: var(--main-clr);
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: .2s;
+}
+button:nth-child(1):hover{
+    background-color: transparent;
+    color: var(--main-clr);
+}
+button:nth-child(2):hover{
+    background-color: var(--info-clr);
+    border-color: transparent;
+    color: white;
+}
+
+.price {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 10px;
+}
+.price input{
+    width: 100%;
+    font-size: 15px !important;
+}
+.price span{
+    font-size: 25px;
+    color: var(--info-clr);
+}

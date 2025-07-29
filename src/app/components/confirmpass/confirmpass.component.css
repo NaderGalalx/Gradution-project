@@ -1,0 +1,100 @@
+
+.container {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-section,
+.right-section {
+  flex: 1;
+  padding: 40px;
+  width: 500px;
+}
+.right-section{
+    align-self: flex-start;
+}
+.illustration {
+  width: 100%;
+  height: auto;
+}
+
+.form-header {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.forget-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.forget-form label {
+  margin: 12px 0 4px;
+  padding-left: 10px ;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.forget-form input {
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.login-link {
+  margin-top: 16px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.login-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.fg-password{
+  padding: 3px;
+  display: inline;
+  color: var(--main-clr);
+  cursor: pointer;
+
+}
+.fg-password:hover{
+  text-decoration: underline;
+}
+
+.head-foget-pass p{
+    color: var(--info-clr);
+    font-size: 18px;
+    margin: 0 !important;
+}
+
+/* Password box syle ----------------------> */
+
+.pass-box{
+  position: relative;
+  width: 100%;
+}
+.pass-box input{
+  width: 100%;
+}
+.pass-box i{
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  color: #cccccc;
+  transition: .3s;
+  cursor: pointer;
+  font-size: 15px;
+}
+.pass-box i:hover{
+  color: rgb(150, 150, 150);
+}

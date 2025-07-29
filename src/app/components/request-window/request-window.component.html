@@ -1,0 +1,100 @@
+<section class="main-content">
+    <div class="container">
+        <!-- request info -->
+        <div class="section">
+            <div class="section-title">تفاصيل الطلب :</div>
+            <table>
+                <tbody>
+
+                    <tr>
+                        <td class="label">رقم الطلب :</td>
+                        <td class="value">{{requestData?.request_id}}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">إسم الطلب :</td>
+                        <td class="value">{{requestData?.type_name}}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">عدد الطلبات :</td>
+                        <td class="value">{{requestData?.count}}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">السعر الكلي :</td>
+                        <td class="value">{{requestData?.total_price}} EGP</td>
+                    </tr>
+                    <tr>
+                        <td class="label">الحالة : </td>
+                        <td class="value">{{requestData?.status}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- student info section -->
+        <div class="section">
+            <div class="section-title">معلومات عن الطالب :</div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="label">الإسم باللغة العربية :</td>
+                        <td class="value rtl">{{requestData?.student_name_ar}}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">الإسم باللغة الإنجليزية:</td>
+                        <td class="value">{{requestData?.student_name_en}}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">القسم :</td>
+                        <td class="value">{{requestData?.department}}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+        <!-- request image section -->
+        <div class="section">
+            <div class="section-title">Request Image:</div>
+            <div class="image-bx">
+                <a [href]="imageUrl || fallbackImage" target="_blank">
+                    <img [src]="imageUrl || fallbackImage" alt="request image" (error)="imageUrl = './assets/images/default.png'" width="200" height="auto">
+                </a>
+            </div>
+        </div>
+        <div class="request-btns">
+            <button (click)="openTabFlag2 = true">قبول</button>
+            <button (click)="openTabFlag1 = true">رفض </button>
+        </div>
+    </div>
+    <!-- reject window -->
+    @if ( openTabFlag1 ) {
+    <div class="reject-win">
+        <div class="reject" >
+            <form [formGroup]="rejecttForm">
+                <!-- Close tab -->
+                <i class="fa-solid fa-xmark" (click)="openTabFlag1 = false"></i>
+                <!-- message -->
+                <textarea id="rejectMessage" rows="10" placeholder="سبب رفض الطلب ..." formControlName="reason"></textarea>
+                <button (click)="rejectRequest()">تأكيد</button>
+            </form>
+        </div>
+    </div>
+    }
+    <!-- accept window -->
+    @if ( openTabFlag2 ) {
+    <div class="reject-win">
+        <div class="reject">
+            <form [formGroup]="acceptForm" class="accept-win">
+                <!-- Close tab -->
+                <i class="fa-solid fa-xmark" (click)="openTabFlag2 = false"></i>
+                <!-- message -->
+                <label for="date" class="deliv-date">معادالإستلام</label>
+                <input type="date" id="date" formControlName="delivery_date">
+                <!-- error message -->
+                 @if(errMessage){
+                     <p class="alert-err">فشلت العملية</p>
+                 }
+                <button (click)="acceptRequest()">تأكيد</button>
+            </form>
+        </div>
+    </div>
+    }
+</section>

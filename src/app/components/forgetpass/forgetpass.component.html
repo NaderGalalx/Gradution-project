@@ -1,0 +1,35 @@
+<section>
+    <div class="container">
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="left-section">
+                    <img src="./assets/images/Frame forget password.png" alt="Illustration" class="illustration" />
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="right-section">
+                    <form class="forget-form" [formGroup]="forgetForm" (ngSubmit)="goToVerifyPage($event)">
+                        <div class="head-foget-pass main-clr text-center">
+                            <h1>نسيت كلمة المرور؟</h1>
+                            <p>يرجى إدخال عنوان بريدك الإلكتروني <br>
+                                لإرسال رمز التحقق.</p>
+                        </div>
+                        <label>البريد الإلكتروني</label>
+                        <input type="email" placeholder="@ex.com " formControlName="email" />
+                        @if(forgetForm.get("email")?.errors && forgetForm.get("email")?.touched ){
+                        <div class="err-alert">
+                            @if      ( forgetForm.get("email")?.getError("required") ){<p class="m-0">يجب ملئ الحقل</p>}
+                            @else if ( forgetForm.get("email")?.getError("email") ){<p class="m-0">الإيميل غير صحيح</p>}
+
+                        </div>
+                        }
+
+                        <button type="submit" class="btn-submit">متابعة
+                            @if(loader){<i class="fa-solid fa-circle-notch fa-spin"></i> }
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

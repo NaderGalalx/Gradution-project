@@ -1,0 +1,36 @@
+<section class="main-content">
+    <div class="event-form" dir="rtl">
+        <form [formGroup]="newsForm" (ngSubmit)="onSubmit()">
+            <!-- title -->
+            <label>العنوان</label>
+            <input type="text" formControlName="name" />
+            @if(newsForm.get("name")?.errors && newsForm.get("name")?.touched ){
+            <div class="alert alert-warning p-2 my-2 fs-6 fw-bold">
+                @if ( newsForm.get("name")?.getError("required") ){<p class="m-0">يجب ملئ الحقل</p>}
+            </div>
+            }
+            <!-- Desc -->
+            <label>الوصف</label>
+            <textarea formControlName="desc" rows="10"></textarea>
+            @if(newsForm.get("desc")?.errors && newsForm.get("desc")?.touched ){
+            <div class="alert alert-warning p-2 my-2 fs-6 fw-bold">
+                @if ( newsForm.get("desc")?.getError("required") ){<p class="m-0">يجب ملئ الخانة</p>}
+            </div>
+            }
+
+            <!-- photo -->
+            <label>الصورة</label>
+            <input type="file" (change)="onImageSelected($event)" accept="image/*" />
+            
+            @if(errMessage){
+            <p class="err-alert">يجب إختيار صورة</p>
+            }
+            <div class="btns">
+                <button type="submit">تحديث
+                    @if(loaderflag){<i class="fa-solid fa-circle-notch fa-spin"></i> }
+                </button>
+                <button type="button" (click)="cancelEvent()">تراجع</button>
+            </div>
+        </form>
+    </div>
+</section>

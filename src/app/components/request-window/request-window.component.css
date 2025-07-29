@@ -1,0 +1,177 @@
+.main-content{
+    padding: 20px;
+}
+.container {
+    max-width: 800px;
+    margin: auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #333;
+}
+
+.section {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--main-clr);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px 0;
+    vertical-align: top;
+}
+
+td.label {
+    font-weight: bold;
+    color: #555;
+    width: 35%;
+}
+
+td.value {
+    color: #222;
+    text-align: left;
+}
+
+.rtl {
+    direction: rtl;
+    text-align: right;
+}
+
+/*  --------------------------- Image box  */
+
+.image-bx{
+    width: 300px; 
+    transition: .3s;   
+    border: 1px solid transparent;
+}
+.image-bx:hover{
+    border-color: var(--main-clr);
+}
+.image-bx img{
+    width: 100%;
+
+}
+
+/* ---------------------------- buttons */
+
+.request-btns{
+    text-align: center;
+}
+.request-btns button{
+    margin: 5px;
+    outline: none;
+    border: 1px solid;
+    background-color: transparent;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.request-btns button:nth-child(1){
+    border-color: var(--main-clr);
+    color: var(--main-clr);
+}
+.request-btns button:nth-child(1):hover{
+    border-color: var(--main-clr);
+    color:white;
+    background-color: var(--main-clr);
+}
+.request-btns button:nth-child(2){
+    border-color: red;
+    color: red;
+}
+.request-btns button:nth-child(2):hover{
+    border-color: red;
+    color: white;
+    background-color: red;
+}
+
+/* ------------------------------- Reject window ---------------> */
+
+.reject-win{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.158);
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+.reject-win .reject{
+    background-color: white;
+    width: 500px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.reject i{
+    width: 100%;
+    text-align: right;
+    margin-bottom: 20px ;
+    cursor: pointer;
+}
+.reject textarea{
+    direction: rtl;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid rgb(211, 211, 211);
+    outline: none;
+    resize: none;
+}
+.reject textarea:hover{
+    border-color: rgb(161, 161, 161);
+}
+.reject textarea:focus{
+    border-color: var(--main-clr);
+}
+.reject-win button{
+    align-self: flex-start;
+    border: 1px solid var(--main-clr);
+    outline: none;
+    padding: 5px 20px;
+    color: white;
+    background-color: var(--main-clr);
+    border-radius: 8px;
+    margin-top: 10px;
+}
+.reject-win button:hover{
+    background-color: transparent;
+    color: var(--main-clr);
+    border: 1px solid var(--main-clr);
+}
+#date{
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+}
+form{
+    width: 100% !important;
+}
+.accept-win{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

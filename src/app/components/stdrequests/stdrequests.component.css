@@ -1,0 +1,24 @@
+nav {
+    background-color: white;
+    border-bottom: 1px solid var(--main-clr);
+}
+
+nav ul li {
+    cursor: pointer;
+    color: var(--main-clr);
+    padding: 10px;
+    border-bottom : 1px solid transparent;
+    opacity: .5;
+    transition: .2s;
+}
+
+nav ul li:hover {
+    opacity: 1;
+    border-color: var(--main-clr);
+}
+
+.acive-request_win {
+    opacity: 1 !important;
+    border-color: var(--main-clr) !important;
+    background-color: var(--bg-clr);
+}

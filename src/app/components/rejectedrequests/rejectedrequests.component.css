@@ -1,0 +1,63 @@
+section{
+    width: 100%;
+}
+.request{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    transition: .2s;
+    border-left: 3px solid transparent;
+}
+.request:hover{
+    background-color: rgb(255, 255, 255);
+    border-left: 3px solid red;
+}
+/* reques left --------------------------> */
+.request-left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.request-left .request-title{
+    font-size: 14px;
+    color: var(--info-clr);
+}
+.request-left h1{
+    font-size: 25px;
+    color: black;
+}
+.request-left p{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+
+/* Request right -------------------------> */
+
+.request-right button{
+    margin: 5px;
+    outline: none;
+    border: 1px solid;
+    background-color: transparent;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.request-right button:nth-child(1){
+    border-color: var(--main-clr);
+    color: var(--main-clr);
+}
+.request-right button:nth-child(1):hover{
+    border-color: var(--main-clr);
+    color:white;
+    background-color: var(--main-clr);
+}
+
+.fa-xmark{
+    color: red;
+    font-size: 20px;
+}

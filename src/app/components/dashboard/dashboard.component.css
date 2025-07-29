@@ -1,0 +1,137 @@
+.container {
+  padding: 0 !important;
+}
+
+.container .row {
+  padding: 0 20px;
+
+}
+
+.container>h1 {
+  background-color: var(--main-clr);
+  display: inline-block;
+  margin: 20px 0;
+  padding: 10px 20px;
+  color: white;
+  font-size: 1.4rem;
+  border-radius: 0 10px 10px 0;
+}
+
+.title {
+  text-align: right;
+}
+
+.title h2 {
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+.title p {
+  color: var(--info-clr);
+}
+
+/* image box */
+
+.img-bx {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.img-bx img {
+  transition: .4s;
+  z-index: 200;
+  scale: 1.1;
+}
+
+.img-bx:hover img {
+  scale: 1.2;
+}
+
+.img-bx:hover .top-layer {
+  background-color: rgba(0, 0, 0, 0.459);
+
+}
+
+.img-bx .top-layer {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), black);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 10px;
+  z-index: 300;
+  transition: .4s;
+}
+
+/*  -------------- Chart style -------------------  */
+
+.overview {
+  margin-bottom: 40px;
+  width: 50%;
+}
+
+.overview h3 {
+  font-size: 17px;
+}
+
+
+.overview .line {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  background-color: rgba(206, 206, 206, 0.767);
+  /* overflow: hidden; */
+  /* border-radius: 4px; */
+  margin-bottom: 10px;
+}
+.line span{
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  color: white;
+  transition: .3s;
+}
+
+.line .percentage {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.line .percentage::after{
+  filter: blur(1px);
+  content: "";
+  position: absolute;
+  background-image: linear-gradient(45deg,rgba(255, 255, 255, 0),rgba(255, 255, 255, 0.575) ,rgba(255, 255, 255, 0));
+  width: 100%;
+  height: 100%;
+  transform: translateX(100%);
+  transition: .4s;
+}
+.line:hover .percentage::after{
+  transform: translateX(-100%);
+}
+.line:hover span{
+  top: -20px;
+  color: rgb(0, 0, 0);
+}
+.pending-percentage {
+  width: 80%;
+  background-color: rgb(70, 70, 70);
+
+}
+
+.accepted-percentage {
+  width: 5%;
+  background-color: var(--main-clr);
+}
+
+.rejected-percentage {
+  width: 15%;
+  background-color: rgb(236, 20, 20);
+}

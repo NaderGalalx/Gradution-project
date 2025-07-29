@@ -1,0 +1,42 @@
+<section>
+    <div class="container">
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="left-section">
+                    <img src="../../../assets/images/FrameConfirmpass.png" class="illustration" />
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="right-section">
+                    <form class="forget-form" [formGroup]="resetPasswordForm" (ngSubmit)="ResetPassword()">
+                        <div class="head-foget-pass main-clr text-center my-2">
+                            <h1>إنشاء كلمة مرور جديدة</h1>
+                        </div>
+                        <!-- New Password -->
+                        <label> كلمة المرور الجديدة</label>
+                        <div class="pass-box">
+                            <input [type]="showPassFlag ? 'text' : 'password'" placeholder=" أدخل كلمة المرور الجديدة"
+                                formControlName="newPassword" />
+                            <i class="fa-solid" [ngClass]="showPassFlag ? 'fa-eye':'fa-eye-slash'"
+                                (click)="showPass()"></i>
+                        </div>
+                        <!-- Confirm Password -->
+                        <label>تأكيد كلمة المرور</label>
+                        <input type="password" placeholder="أعد إدخال كلمة المرور" formControlName="rePassword" />
+                            @if(resetPasswordForm.getError("misMatch") && resetPasswordForm.get("rePassword")?.touched ){
+                            <div class="alert alert-warning p-2 my-2 fs-6 fw-bold">
+                                @if ( resetPasswordForm.get("rePassword")?.getError("required") ){<p class="m-0">يجب ملئ الحقل
+                                </p>}
+                                <p class="m-0">غير متطابقان</p>
+                            </div>
+                            }
+                            @if(errMessage){
+                                <p class="err-alert">حدث خطأ</p>
+                            }
+                        <button type="submit" class="btn-submit my-4">إعادة تعيين كلمة المرور</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

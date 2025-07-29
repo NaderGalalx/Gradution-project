@@ -1,0 +1,20 @@
+/* Media queries ------------------->*/
+
+/* ------------------------------------------------ */
+/* 1) nav-Auth ------------> */ 
+
+@media (width <= 48rem) { 
+    .fa-bars{
+        display: block !important;
+    }
+    .nav-list{
+        display: none;
+    }
+
+ }
+
+@media (width <= 991px){
+    .head-foget-pass p{
+        font-size: 16px !important;
+    }
+}

@@ -1,0 +1,22 @@
+<nav>
+    <div class="logo">
+        <img src="./assets/images/Hti logo.png">
+    </div>
+    <ul class="nav-list">
+        <li><button class="btn-outline" routerLink="login" routerLinkActive="btn-primary">تسجيل دخول</button></li>
+    </ul>
+    <!-- side nav key -->
+    <i class="fa-solid fa-bars" (click)="showSideNav()"></i>
+</nav>
+
+<!-- side nav -->
+@if( sideNavFlag ){
+    <div class="side-nav" >
+    <nav>
+        <i class="fa-solid fa-xmark" (click)="showSideNav()"></i>
+        <ul>
+            <li><button class="btn-outline-side" routerLink="login"  routerLinkActive="btn-primary-side" (click)="showSideNav()">تسجيل دخول</button></li>
+        </ul>
+    </nav>
+</div>
+}
