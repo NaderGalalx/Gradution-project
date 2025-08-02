@@ -27,8 +27,8 @@ export class LoginComponent {
 
   // form ([formBuilder])
   loginForm: FormGroup = this._FormBuilder.group({
-    email:    ['abdo@gmail.com', [Validators.required, Validators.email]],
-    password: [123456, [Validators.required]]  // accept any language / any letter
+    email:    [null, [Validators.required, Validators.email]],
+    password: [null, [Validators.required]]  // accept any language / any letter
   })
 
   // Methods
