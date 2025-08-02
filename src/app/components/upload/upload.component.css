@@ -1,6 +1,9 @@
 .upload-container {
   direction: rtl;
 }
+.container{
+  padding: 20px;
+}
 .upload{
   background-color: rgba(241, 241, 241, 0.671);
   padding: 12px;

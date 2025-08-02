@@ -1,15 +1,5 @@
 <div class="upload-container">
 
-  <!-- رفع ملف Excel -->
-  <div class="section upload">
-    <label for="excelFile" class="upload-btn"> رفع ملف Excel <i class="fa-solid fa-upload"></i></label>
-    @if(loader){<i class="fa-solid fa-circle-notch fa-spin"></i> }
-    <input type="file" id="excelFile" hidden (change)="onFileSelected($event)" accept=".xlsx, .xls">
-    @if(errMessage){
-    <p class="err-alert">فشلت العملية</p>
-    }
-  </div>
-
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-lg-6">

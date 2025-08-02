@@ -9,7 +9,7 @@
                         <div class="title">
                             <h2>{{item.title}}</h2>
                             <p>{{item.start_time | date}}</p>
-                            <p>{{item.description.split(' ').slice(0, 10).join(' ') }}</p>
+                            <p>{{item.description.split(' ').slice(0, 10).join(' ')}}</p>
                         </div>
                     </div>
                     <img [src]="item.image || './assets/images/institute.png'"
