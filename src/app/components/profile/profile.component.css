@@ -13,7 +13,7 @@
     background-color: var(--main-clr);
     background-image: linear-gradient(to left, rgba(255, 255, 255, 0.26), var(--main-clr));
     height: 200px;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .profile-img {

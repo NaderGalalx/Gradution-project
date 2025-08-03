@@ -13,40 +13,42 @@ import { LoginService } from '../../core/services/login.service';
 })
 export class LoginComponent {
   // DI ----------------->
-  private readonly _FormBuilder  = inject(FormBuilder)
-  private readonly _Router       = inject(Router)
+  private readonly _FormBuilder = inject(FormBuilder)
+  private readonly _Router = inject(Router)
   private readonly _LoginService = inject(LoginService)
 
 
 
   // Properties----------->
-  loader:boolean = false
+  loader: boolean = false
 
-  errorMessage!:string;
+  errorMessage!: string;
   showPassFlag: Boolean = false
 
   // form ([formBuilder])
   loginForm: FormGroup = this._FormBuilder.group({
-    email:    [null, [Validators.required, Validators.email]],
+    email: [null, [Validators.required, Validators.email]],
     password: [null, [Validators.required]]  // accept any language / any letter
   })
 
   // Methods
   login() {
-    if( this.loginForm.valid ){
+    this.errorMessage = ""
+
+    if (this.loginForm.valid) {
       this.loader = true
       this._LoginService.Login(this.loginForm.value).subscribe({
-        next:(res)=>{
-          sessionStorage.setItem("token",res.token)
+        next: (res) => {
+          sessionStorage.setItem("token", res.token)
           this._Router.navigate(['/main'])
-          },
-        error:(err)=>{
+        },
+        error: (err) => {
           this.loader = false
           this.errorMessage = "Invalid email or password"
         }
       })
 
-    }else{
+    } else {
       this.loginForm.markAllAsTouched()
     }
 

@@ -93,6 +93,8 @@ export class ProfileComponent implements OnInit {
   // password ------------->
 
   updatePassword() {
+    this.errMessage = false
+
     if (this.resetPasswordForm.valid) {
       this._ResetPassService.resetPassword(this.resetPasswordForm.value).subscribe({
         next: (res) => {

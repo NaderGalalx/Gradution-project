@@ -20,6 +20,18 @@
             }
         </div>
 
+        @if(eventsData.length == 0){
+        <div class="row">
+            @for (item of [1,2]; track $index) {
+            <div class="col-md-6 col-sm-12">
+                <div class="placeholder-bx">
+                </div>
+            </div>
+
+            }
+        </div>
+        }
+
         <h1>نظرة عامة</h1>
         <!-- graphs -->
         <div class="row" dir="rtl">

@@ -53,7 +53,7 @@ export class UpdateNewsComponent implements OnInit {
           name: this.newsData.title,
           desc: this.newsData.content
         })
-        this.selectedImage = this.newsData.image
+        // this.selectedImage = this.newsData.image
       }
     })
 
@@ -72,15 +72,14 @@ export class UpdateNewsComponent implements OnInit {
       this.newsForm.markAllAsTouched()
     }
     else {
-
+      this.errMessage = false
       this.loaderflag = true
 
       const formData = new FormData();
       formData.append('title', this.newsForm.value.name);
-      formData.append('description', this.newsForm.value.desc);
-      formData.append('start_time', this.newsForm.value.date);
-      formData.append('image', this.selectedImage || new File([], ''));
-      
+      formData.append('content', this.newsForm.value.desc);
+      formData.append('image', this.selectedImage);
+
       this._NewsService.updateNew(this.newIndex, formData).subscribe({
         next: (res) => {
           this.loaderflag = false

@@ -50,7 +50,7 @@ export class UpdateEventComponent implements OnInit {
       next: (res) => {
         this.eventData = res;
 
-        const formattedDate = this.eventData.start_time.split('T')[0]; 
+        const formattedDate = this.eventData.start_time.split('T')[0];
 
         this.eventForm.patchValue({
           name: this.eventData.title,
@@ -78,7 +78,7 @@ export class UpdateEventComponent implements OnInit {
       this.eventForm.markAllAsTouched()
     }
     else {
-
+      this.errMessage = false
       this.loaderflag = true
 
       const formData = new FormData();
@@ -87,12 +87,14 @@ export class UpdateEventComponent implements OnInit {
       formData.append('start_time', this.eventForm.value.date);
       formData.append('image', this.selectedImage);
 
-      this._EventsService.updateEvent(this.eventIndex , formData).subscribe({
-        next:(res)=>{
+      this._EventsService.updateEvent(this.eventIndex, formData).subscribe({
+        next: (res) => {
           this.loaderflag = false
           this._Router.navigate(['/main/events'])
         },
-        error:(err)=>{this.errMessage = true
+        error: (err) => {
+          this.loaderflag = false
+          this.errMessage = true
         }
       })
 
